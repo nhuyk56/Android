@@ -27,25 +27,25 @@ public class TruongHop3 extends Activity {
 	 txtchon=(TextView) findViewById(R.id.txtselection);
 	 
 	 lv=(ListView) findViewById(R.id.lvperson);
-	 //1. Tạo ArrayList object
+
 	 arrList=new ArrayList<String>();
-	 //2. Gán Data Source (ArrayList object) vào ArrayAdapter
+	 
 	 adapter=new ArrayAdapter<String>
 	 (this,
 	 android.R.layout.simple_list_item_1,
 	 arrList);
-	 //3. gán Adapter vào ListView
+	 
 	 lv.setAdapter(adapter);
 	 
 	 btn=(Button) findViewById(R.id.btnNhap);
-	 //4. Xử lý sự kiện nhấn nút Nhập
+	 
 	 btn.setOnClickListener(new View.OnClickListener() {
 	 public void onClick(View arg0) {
 	 arrList.add(txtten.getText()+"");
 	 adapter.notifyDataSetChanged();
 	 }
 	 });
-	 //5. Xử lý sự kiện chọn một phần tử trong ListView
+	 
 	 lv.setOnItemClickListener(new AdapterView
 	 .OnItemClickListener() {
 	 public void onItemClick(
@@ -56,16 +56,16 @@ public class TruongHop3 extends Activity {
 	 "; value ="+arrList.get(arg2));
 	 }
 	 });
-	 //6. xử lý sự kiện Long click
+	 
 	 lv.setOnItemLongClickListener(new AdapterView
 	 .OnItemLongClickListener() {
 	 @Override
 	 public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
 	 int arg2, long arg3) {
-	 arrList.remove(arg2);//xóa phần tử thứ arg2
+	 arrList.remove(arg2);
 	 adapter.notifyDataSetChanged();
 	 return false;
 	 }
 	 });
 	 }
-	}
+}
